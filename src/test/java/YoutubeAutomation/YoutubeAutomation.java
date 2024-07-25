@@ -44,6 +44,13 @@ public class YoutubeAutomation {
 		System.out.println("Movie 1: " + movieOne);
 		System.out.println("Movie 2: " + movieTwo);
 		System.out.println("Movie 3: " + movieThree);
+		
+		// Wait 5 seconds
+	    Thread.sleep(5000);
+
+	    //Close and quit the driver
+	    driver.close();
+	    driver.quit();
 	}
 
 }
