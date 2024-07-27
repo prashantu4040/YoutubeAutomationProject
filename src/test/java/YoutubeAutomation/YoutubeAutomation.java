@@ -1,9 +1,14 @@
 package YoutubeAutomation;
 
+import java.time.Duration;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class YoutubeAutomation {
 
@@ -24,6 +29,7 @@ public class YoutubeAutomation {
 
 		// Wait 5 seconds for site to get loaded
 		Thread.sleep(5000);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
 		// Find the element where Search Word is to be entered,
 		// populate the search bar
@@ -47,10 +53,18 @@ public class YoutubeAutomation {
 		
 		// Wait 5 seconds
 	    Thread.sleep(5000);
+	    
+	 // Wait for the results to load and get movie names
+	    List<WebElement> videoResults = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//a[@id='video-title']")));
 
+
+	 // Print the total number of video results
+        int numberOfResults = videoResults.size();
+        System.out.println("Total number of movie results: " + numberOfResults);
+        
 	    //Close and quit the driver
-	    driver.close();
-	    driver.quit();
+	    //driver.close();
+	    //driver.quit();
 	}
 
 }
