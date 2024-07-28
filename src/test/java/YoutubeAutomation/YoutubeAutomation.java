@@ -69,7 +69,7 @@ public class YoutubeAutomation {
         
 	    //Close and quit the driver
 	    //driver.close();
-	    //driver.quit();
+	    driver.quit();
 	}
 
 }
